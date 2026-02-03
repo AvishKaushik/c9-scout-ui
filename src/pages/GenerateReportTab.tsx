@@ -160,42 +160,42 @@ export default function GenerateReportTab({ game }: Props) {
           {(report.team_profile?.early_game_patterns?.length > 0 ||
             report.team_profile?.mid_game_patterns?.length > 0 ||
             report.team_profile?.late_game_patterns?.length > 0) && (
-            <div className="card">
-              <h3 className="text-lg font-semibold text-slate-800 mb-4">Common Patterns</h3>
-              <div className="grid md:grid-cols-3 gap-4">
-                {report.team_profile.early_game_patterns?.length > 0 && (
-                  <div className="bg-amber-50 rounded-lg p-3">
-                    <p className="font-semibold text-amber-700 mb-2">Early Game</p>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      {report.team_profile.early_game_patterns.map((p: string, i: number) => (
-                        <li key={i}>• {p}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {report.team_profile.mid_game_patterns?.length > 0 && (
-                  <div className="bg-blue-50 rounded-lg p-3">
-                    <p className="font-semibold text-blue-700 mb-2">Mid Game</p>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      {report.team_profile.mid_game_patterns.map((p: string, i: number) => (
-                        <li key={i}>• {p}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {report.team_profile.late_game_patterns?.length > 0 && (
-                  <div className="bg-purple-50 rounded-lg p-3">
-                    <p className="font-semibold text-purple-700 mb-2">Late Game</p>
-                    <ul className="text-sm text-slate-600 space-y-1">
-                      {report.team_profile.late_game_patterns.map((p: string, i: number) => (
-                        <li key={i}>• {p}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              <div className="card">
+                <h3 className="text-lg font-semibold text-slate-800 mb-4">Common Patterns</h3>
+                <div className="grid md:grid-cols-3 gap-4">
+                  {report.team_profile.early_game_patterns?.length > 0 && (
+                    <div className="bg-amber-50 rounded-lg p-3">
+                      <p className="font-semibold text-amber-700 mb-2">Early Game</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        {report.team_profile.early_game_patterns.map((p: string, i: number) => (
+                          <li key={i}>• {p}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {report.team_profile.mid_game_patterns?.length > 0 && (
+                    <div className="bg-blue-50 rounded-lg p-3">
+                      <p className="font-semibold text-blue-700 mb-2">Mid Game</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        {report.team_profile.mid_game_patterns.map((p: string, i: number) => (
+                          <li key={i}>• {p}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {report.team_profile.late_game_patterns?.length > 0 && (
+                    <div className="bg-purple-50 rounded-lg p-3">
+                      <p className="font-semibold text-purple-700 mb-2">Late Game</p>
+                      <ul className="text-sm text-slate-600 space-y-1">
+                        {report.team_profile.late_game_patterns.map((p: string, i: number) => (
+                          <li key={i}>• {p}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           {/* Recent Compositions */}
           {report.recent_compositions?.length > 0 && (
@@ -230,10 +230,9 @@ export default function GenerateReportTab({ game }: Props) {
                   <div key={player.player_id} className="border border-slate-200 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-slate-800">{player.player_name}</span>
-                      <span className={`badge ${
-                        player.threat_level === 'High' ? 'badge-red' :
-                        player.threat_level === 'Medium' ? 'badge-yellow' : 'badge-green'
-                      }`}>
+                      <span className={`badge ${player.threat_level === 'High' ? 'badge-red' :
+                          player.threat_level === 'Medium' ? 'badge-yellow' : 'badge-green'
+                        }`}>
                         {player.threat_level}
                       </span>
                     </div>
@@ -242,8 +241,8 @@ export default function GenerateReportTab({ game }: Props) {
                       <div className="mb-2">
                         <p className="text-xs text-slate-500 mb-1">Primary Picks:</p>
                         <div className="flex flex-wrap gap-1">
-                          {player.primary_picks.slice(0, 3).map((pick: string, i: number) => (
-                            <span key={i} className="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">{pick}</span>
+                          {player.primary_picks.slice(0, 3).map((pick: any, i: number) => (
+                            <span key={i} className="text-xs bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">{pick.name}</span>
                           ))}
                         </div>
                       </div>
