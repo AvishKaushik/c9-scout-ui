@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:8002/api/v1'
+const API_BASE = 'https://c9-scout-api.onrender.com/api/v1'
 
 const api = axios.create({
   baseURL: API_BASE,
